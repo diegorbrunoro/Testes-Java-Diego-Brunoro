@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="tutorialWeb">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes/" source-path="/ImportedClasses"/>
+        <dependent-module archiveName="weld-servlet.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/weld-servlet/weld-servlet">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="javax.faces-2.1.10.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/javax.faces-2.1.10/javax.faces-2.1.10">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="primefaces-5.3.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/primefaces-5.3/primefaces-5.3">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="tutorialWeb"/>
+        <property name="java-output-path" value="/tutorialWeb/build/classes"/>
+    </wb-module>
+</project-modules>

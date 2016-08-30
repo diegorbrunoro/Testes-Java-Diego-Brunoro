@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view contetType="text/html">
+
+	<h:head>
+	<h:link outcome="Teste" value="Teste Layout"></h:link>
+		<f:facet name="firts">
+			<meta content='text/html; charset=UTF-8' http-equiv="content-Type" />
+			<title>PrimeFaces</title>
+		</f:facet>
+	</h:head>
+	<h:body>
+		<center>
+			<h:form id="formulario">
+				<h:panelGrid>
+					<p:panel header="Incluir Carro">
+						<h:panelGrid columns="2">
+							<h:outputText value="Marca" />
+							<p:inputText id="marca" value="#{controleCarro.carro.marca}" />
+							<h:outputText value="Modelo" />
+							<p:inputText id="modelo" value="#{controleCarro.carro.modelo}" />
+							<h:outputText value="Ano" />
+							<p:inputText id="ano" value="#{controleCarro.carro.ano}" maxlength="4"/>
+							<h:outputText value="Preço" />
+							<p:inputText id="preco" value="#{controleCarro.carro.preco}" />
+							<p:commandButton value="GRAVAR" action="#{controleCarro.inserirCarro()}" update="tabelaCarros" />
+							<p:commandButton value="LIMPAR" type="reset" />
+						</h:panelGrid>
+					</p:panel>
+							<p:dataTable id="tabelaCarros" value="#{controleCarro.carros}" emptyMessage="Não encontrou registros" var="carro" paginator="true" rows="3">
+								<p:column headerText="Marca" filterBy="#{carro.marca}">
+									#{carro.marca}
+								</p:column>
+								<p:column headerText="Modelo">
+									<h:outputText value="#{carro.modelo}" />
+								</p:column>
+								<p:column headerText="Ano">
+									<h:outputText value="#{carro.ano}" />
+								</p:column>
+								<p:column headerText="Preco">
+									<h:outputText value="#{carro.preco}" />
+								</p:column>
+								<p:column>
+									<p:commandButton value="Remover" update="tabelaCarros" action="#{controleCarro.removerCarro(carro)}"/>
+								</p:column>
+							</p:dataTable>	
+						</h:panelGrid>
+			</h:form>
+		</center>
+	</h:body>
+	
+</f:view>
+</html>
